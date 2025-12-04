@@ -1,0 +1,263 @@
+---
+import Layout from '../layouts/Layout.astro';
+import menuData from '../data/menu.json';
+
+const { categorie } = menuData;
+---
+
+<Layout title="Wine Cafè - Menu">
+	<div class="menu-header">
+		<div class="container">
+			<h1>Il Nostro Menu</h1>
+			<p>Scopri le nostre proposte</p>
+		</div>
+	</div>
+
+	<div class="container menu-container">
+		<div class="search-bar">
+			<input type="text" id="searchInput" placeholder="Cerca nel menu..." aria-label="Cerca nel menu">
+		</div>
+
+		<div id="menuContent">
+			{Object.entries(categorie).map(([key, items]) => (
+				<section class="menu-section" data-category={key}>
+					<h2 class="category-title">
+						{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+					</h2>
+					
+					{Array.isArray(items) ? (
+						<div class="menu-grid">
+							{items.map((item) => (
+								<div class="menu-item" data-name={item.nome.toLowerCase()}>
+									<div class="item-info">
+										<span class="item-name">{item.nome}</span>
+										<span class="item-dots"></span>
+										<span class="item-price">€ {item.prezzo.toFixed(2)}</span>
+									</div>
+								</div>
+							))}
+						</div>
+					) : (
+						<div class="special-item">
+							<div class="special-header">
+								<h3>Aperitivo con Tagliere</h3>
+								<span class="special-price">€ {items.prezzo_per_persona.toFixed(2)} p.p.</span>
+							</div>
+							<p class="special-desc">{items.include}</p>
+							<p class="special-note">{items.note}</p>
+						</div>
+					)}
+				</section>
+			))}
+		</div>
+		
+		<div id="noResults" class="no-results" style="display: none;">
+			<p>Nessun prodotto trovato.</p>
+		</div>
+	</div>
+</Layout>
+
+<script>
+	const searchInput = document.getElementById('searchInput');
+	const menuItems = document.querySelectorAll('.menu-item');
+	const menuSections = document.querySelectorAll('.menu-section');
+	const noResults = document.getElementById('noResults');
+
+	searchInput?.addEventListener('input', (e) => {
+		const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+		let hasVisibleItems = false;
+
+		menuSections.forEach(section => {
+			let hasVisibleItemsInSection = false;
+			
+			// Handle standard lists
+			const items = section.querySelectorAll('.menu-item');
+			if (items.length > 0) {
+				items.forEach(item => {
+					const name = item.getAttribute('data-name') || '';
+					if (name.includes(searchTerm)) {
+						(item as HTMLElement).style.display = 'block';
+						hasVisibleItemsInSection = true;
+						hasVisibleItems = true;
+					} else {
+						(item as HTMLElement).style.display = 'none';
+					}
+				});
+			} else {
+				// Handle special items (like Aperitivo con Tagliere)
+				// Simple logic: if search matches category name or content, show it
+				const title = section.querySelector('.category-title')?.textContent?.toLowerCase() || '';
+				const content = section.textContent?.toLowerCase() || '';
+				
+				if (title.includes(searchTerm) || content.includes(searchTerm)) {
+					hasVisibleItemsInSection = true;
+					hasVisibleItems = true;
+				}
+			}
+
+			if (hasVisibleItemsInSection) {
+				(section as HTMLElement).style.display = 'block';
+			} else {
+				(section as HTMLElement).style.display = 'none';
+			}
+		});
+
+		if (noResults) {
+			noResults.style.display = hasVisibleItems ? 'none' : 'block';
+		}
+	});
+</script>
+
+<style>
+	.menu-header {
+		background-color: var(--color-taupe);
+		color: var(--color-white);
+		padding: 4rem 0;
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.menu-header h1 {
+		font-size: 3rem;
+		color: var(--color-white);
+		margin-bottom: 0.5rem;
+	}
+
+	.menu-container {
+		padding-bottom: 4rem;
+	}
+
+	.search-bar {
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.search-bar input {
+		width: 100%;
+		max-width: 500px;
+		padding: 1rem 1.5rem;
+		border: 2px solid var(--color-taupe);
+		border-radius: 30px;
+		font-size: 1rem;
+		font-family: 'Lato', sans-serif;
+		outline: none;
+		transition: border-color 0.3s ease;
+	}
+
+	.search-bar input:focus {
+		border-color: var(--color-pink);
+	}
+
+	.menu-section {
+		margin-bottom: 4rem;
+	}
+
+	.category-title {
+		text-align: center;
+		color: var(--color-pink);
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		position: relative;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.category-title::after {
+		content: '';
+		display: block;
+		width: 50px;
+		height: 3px;
+		background-color: var(--color-taupe);
+		margin: 10px auto 0;
+	}
+
+	.menu-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 1.5rem 3rem;
+	}
+
+	.menu-item {
+		margin-bottom: 0.5rem;
+	}
+
+	.item-info {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+	}
+
+	.item-name {
+		font-weight: 700;
+		color: var(--color-text);
+		font-size: 1.1rem;
+	}
+
+	.item-dots {
+		flex: 1;
+		border-bottom: 1px dotted var(--color-taupe-dark);
+		margin: 0 10px;
+		opacity: 0.5;
+	}
+
+	.item-price {
+		font-weight: 700;
+		color: var(--color-pink);
+	}
+
+	.special-item {
+		background-color: var(--color-white);
+		padding: 2rem;
+		border-radius: 8px;
+		box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+		border-left: 5px solid var(--color-pink);
+	}
+
+	.special-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.special-header h3 {
+		font-size: 1.5rem;
+		margin: 0;
+	}
+
+	.special-price {
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: var(--color-pink);
+	}
+
+	.special-desc {
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.special-note {
+		font-size: 0.9rem;
+		font-style: italic;
+		color: var(--color-taupe-dark);
+	}
+
+	.no-results {
+		text-align: center;
+		padding: 3rem;
+		font-size: 1.2rem;
+		color: var(--color-taupe-dark);
+	}
+
+	@media (max-width: 600px) {
+		.menu-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.special-header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5rem;
+		}
+	}
+</style>

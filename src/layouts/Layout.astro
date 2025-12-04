@@ -1,0 +1,305 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Wine Cafè - Bar e Caffetteria" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="logo">
+					<a href="/">Wine Cafè</a>
+				</div>
+				<ul class="nav-links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/menu">Menu</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<div class="footer-social">
+				<a href="https://www.instagram.com/winecafe2/" target="_blank" class="social-link-footer">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+					<span>Seguici su Instagram</span>
+				</a>
+			</div>
+			<p>&copy; {new Date().getFullYear()} Wine Cafè. Tutti i diritti riservati.</p>
+			<p class="credits">Sito creato da <a href="https://bitora.it" target="_blank">bitora.it</a> - Partner tecnologico</p>
+		</footer>
+
+		<div id="cookie-banner" class="cookie-banner">
+			<div class="cookie-content">
+				<p>Utilizziamo i cookie per migliorare la tua esperienza e per mostrare contenuti di terze parti come le mappe. Accetti l'utilizzo dei cookie?</p>
+				<div class="cookie-buttons">
+					<button id="accept-cookies" class="btn-cookie accept">Accetta</button>
+					<button id="reject-cookies" class="btn-cookie reject">Rifiuta</button>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			const banner = document.getElementById('cookie-banner');
+			const acceptBtn = document.getElementById('accept-cookies');
+			const rejectBtn = document.getElementById('reject-cookies');
+
+			// Check if user has already made a choice
+			const consent = localStorage.getItem('cookie_consent');
+
+			if (!consent) {
+				if (banner) banner.style.display = 'flex';
+			}
+
+			acceptBtn?.addEventListener('click', () => {
+				localStorage.setItem('cookie_consent', 'true');
+				localStorage.setItem('cookie_consent_map', 'true');
+				if (banner) banner.style.display = 'none';
+				window.dispatchEvent(new Event('cookie-consent-updated'));
+			});
+
+			rejectBtn?.addEventListener('click', () => {
+				localStorage.setItem('cookie_consent', 'false');
+				localStorage.setItem('cookie_consent_map', 'false');
+				if (banner) banner.style.display = 'none';
+				window.dispatchEvent(new Event('cookie-consent-updated'));
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-taupe: #CFC5BC; /* Tortora chiaro */
+		--color-taupe-dark: #A89F96;
+		--color-pink: #D4A5A5; /* Rosa spento */
+		--color-pink-light: #EEDDDD;
+		--color-text: #4A4A4A;
+		--color-bg: #F9F7F5;
+		--color-white: #FFFFFF;
+	}
+	
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: 'Lato', sans-serif;
+		background: var(--color-bg);
+		color: var(--color-text);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Playfair Display', serif;
+		color: var(--color-text);
+	}
+
+	body {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	main {
+		flex: 1;
+	}
+
+	header {
+		background-color: var(--color-white);
+		padding: 1rem 2rem;
+		box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.logo a {
+		font-family: 'Playfair Display', serif;
+		font-size: 1.5rem;
+		font-weight: 700;
+		text-decoration: none;
+		color: var(--color-pink);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.nav-links {
+		list-style: none;
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-links a {
+		text-decoration: none;
+		color: var(--color-text);
+		font-weight: 400;
+		transition: color 0.3s ease;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+		letter-spacing: 1px;
+	}
+
+	.nav-links a:hover, .social-link:hover {
+		color: var(--color-pink);
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		color: var(--color-text);
+		transition: color 0.3s ease;
+	}
+
+	.footer-social {
+		margin-bottom: 1.5rem;
+	}
+
+	.social-link-footer {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-white);
+		text-decoration: none;
+		font-weight: 700;
+		transition: color 0.3s ease;
+	}
+
+	.social-link-footer:hover {
+		color: var(--color-pink-light);
+	}
+
+	/* Cookie Banner */
+	.cookie-banner {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: var(--color-white);
+		box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+		padding: 1.5rem;
+		z-index: 1000;
+		display: none;
+		border-top: 4px solid var(--color-pink);
+	}
+
+	.cookie-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.cookie-content p {
+		flex: 1;
+		min-width: 300px;
+	}
+
+	.cookie-buttons {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.btn-cookie {
+		padding: 0.8rem 2rem;
+		border-radius: 30px;
+		border: none;
+		cursor: pointer;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+		transition: all 0.3s ease;
+	}
+
+	.btn-cookie.accept {
+		background-color: var(--color-pink);
+		color: var(--color-white);
+	}
+
+	.btn-cookie.accept:hover {
+		background-color: var(--color-taupe-dark);
+	}
+
+	.btn-cookie.reject {
+		background-color: transparent;
+		border: 2px solid var(--color-taupe);
+		color: var(--color-taupe-dark);
+	}
+
+	.btn-cookie.reject:hover {
+		border-color: var(--color-taupe-dark);
+		color: var(--color-text);
+	}
+
+	footer {
+		background-color: var(--color-taupe);
+		color: var(--color-white);
+		text-align: center;
+		padding: 2rem;
+		margin-top: auto;
+	}
+
+	.credits {
+		margin-top: 1rem;
+		font-size: 0.8rem;
+		opacity: 0.8;
+	}
+
+	.credits a {
+		color: var(--color-white);
+		text-decoration: underline;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.btn {
+		display: inline-block;
+		background-color: var(--color-pink);
+		color: var(--color-white);
+		padding: 0.8rem 2rem;
+		text-decoration: none;
+		border-radius: 30px;
+		transition: background-color 0.3s ease;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+		letter-spacing: 1px;
+		border: none;
+		cursor: pointer;
+	}
+
+	.btn:hover {
+		background-color: var(--color-taupe-dark);
+	}
+</style>

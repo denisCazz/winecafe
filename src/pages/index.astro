@@ -1,16 +1,542 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Wine Cafè - Home">
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="hero-overlay"></div>
+		<div class="hero-content">
+			<span class="subtitle">Dal mattino alla sera</span>
+			<h1>Wine Cafè</h1>
+			<p>Il tuo angolo di relax dove il gusto incontra l'eleganza.</p>
+			<div class="cta-group">
+				<a href="/menu" class="btn btn-primary">Scopri il Menu</a>
+				<a href="#info" class="btn btn-outline">Vieni a trovarci</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Intro Section -->
+	<section class="intro container">
+		<div class="intro-image">
+			<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interno del Wine Cafè" />
+		</div>
+		<div class="intro-text">
+			<h2>La nostra filosofia</h2>
+			<p>Wine Cafè nasce dalla passione per le cose buone. Un ambiente curato nei minimi dettagli, dove il color tortora e il rosa antico creano un'atmosfera calda e accogliente.</p>
+			<p>Che sia per una colazione veloce, un pranzo leggero o un aperitivo con gli amici, qui troverai sempre un sorriso e prodotti di alta qualità.</p>
+		</div>
+	</section>
+
+	<!-- Services Section -->
+	<section class="services">
+		<div class="container">
+			<div class="section-header">
+				<h2>I Nostri Momenti</h2>
+				<p>Ogni momento della giornata è quello giusto</p>
+			</div>
+			<div class="services-grid">
+				<div class="service-card">
+					<div class="icon">☕</div>
+					<h3>Caffetteria</h3>
+					<p>Miscele pregiate e brioches appena sfornate per iniziare la giornata con la giusta energia.</p>
+				</div>
+				<div class="service-card">
+					<div class="icon">🥗</div>
+					<h3>Pausa Pranzo</h3>
+					<p>Proposte fresche e genuine: Hamburger, insalate, panini gourmet e piatti del giorno preparati con cura.</p>
+				</div>
+				<div class="service-card">
+					<div class="icon">🍹</div>
+					<h3>Aperitivi</h3>
+					<p>Il momento più atteso: cocktail classici e rivisitati accompagnati dai nostri ricchi taglieri.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery Section -->
+	<section class="gallery">
+		<div class="gallery-item">
+			<img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Caffè" />
+		</div>
+		<div class="gallery-item">
+			<img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cocktail" />
+		</div>
+		<div class="gallery-item">
+			<img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cibo" />
+		</div>
+		<div class="gallery-item">
+			<img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Atmosfera" />
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="testimonials container">
+		<h2>Dicono di noi</h2>
+		<div class="testimonial-card">
+			<p class="quote">"Il miglior aperitivo della zona! Il tagliere è abbondante e i cocktail sono fantastici. L'atmosfera è super rilassante."</p>
+			<span class="author">- Giulia M.</span>
+		</div>
+	</section>
+
+	<!-- Social Section -->
+	<section class="social-section">
+		<div class="container">
+			<h2>Seguici sui Social</h2>
+			<p>Rimani aggiornato sulle nostre novità ed eventi</p>
+			<div class="social-buttons">
+				<a href="https://www.instagram.com/winecafe2/" target="_blank" class="social-btn instagram">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+					Instagram
+				</a>
+				<a href="#" class="social-btn facebook">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+					Facebook
+				</a>
+				<a href="#" class="social-btn tiktok">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+					TikTok
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Info Section -->
+	<section id="info" class="info-section">
+		<div class="container">
+			<div class="info-grid">
+				<div class="info-box">
+					<h3>Orari di Apertura</h3>
+					<ul>
+						<li><span>Lunedì - Venerdì:</span> 07:00 - 22:00</li>
+						<li><span>Sabato:</span> 08:00 - 24:00</li>
+						<li><span>Domenica:</span> 09:00 - 21:00</li>
+					</ul>
+				</div>
+				<div class="info-box">
+					<h3>Dove Siamo</h3>
+					<p>Piazza IV Martiri 33 A<br>10022 Carmagnola (TO)</p>
+					<p>Tel: +39 012 3456789<br>Email: info@winecafe.it</p>
+				</div>
+			</div>
+
+			<div class="map-wrapper">
+				<div id="map-placeholder" class="map-placeholder">
+					<p>La mappa è disattivata. Per visualizzarla è necessario accettare i cookie di Google Maps.</p>
+					<button id="accept-map" class="btn btn-outline">Attiva Mappa</button>
+				</div>
+				<div id="map-frame-container"></div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const mapPlaceholder = document.getElementById('map-placeholder');
+	const mapFrameContainer = document.getElementById('map-frame-container');
+	const acceptBtn = document.getElementById('accept-map');
+
+	// Indirizzo: Piazza IV Martiri 33 A, 10022 Carmagnola (TO)
+	const mapSrc = "https://maps.google.com/maps?q=Piazza+IV+Martiri+33+A,+10022+Carmagnola+(TO)&t=&z=15&ie=UTF8&iwloc=&output=embed";
+
+	function loadMap() {
+		if (mapFrameContainer && mapPlaceholder) {
+			mapPlaceholder.style.display = 'none';
+			mapFrameContainer.style.display = 'block';
+			
+			const iframe = document.createElement('iframe');
+			iframe.width = "100%";
+			iframe.height = "400";
+			iframe.style.border = "0";
+			iframe.allowFullscreen = true;
+			iframe.loading = "lazy";
+			iframe.referrerPolicy = "no-referrer-when-downgrade";
+			iframe.src = mapSrc;
+			
+			mapFrameContainer.appendChild(iframe);
+		}
+	}
+
+	if (localStorage.getItem('cookie_consent_map') === 'true') {
+		loadMap();
+	}
+
+	// Listen for global cookie consent updates
+	window.addEventListener('cookie-consent-updated', () => {
+		if (localStorage.getItem('cookie_consent_map') === 'true') {
+			loadMap();
+		}
+	});
+
+	acceptBtn?.addEventListener('click', () => {
+		localStorage.setItem('cookie_consent_map', 'true');
+		// Also update global consent if not set
+		if (!localStorage.getItem('cookie_consent')) {
+			localStorage.setItem('cookie_consent', 'true');
+			const banner = document.getElementById('cookie-banner');
+			if (banner) banner.style.display = 'none';
+		}
+		loadMap();
+	});
+</script>
+
+<style>
+	/* Hero */
+	.hero {
+		position: relative;
+		height: 90vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		color: var(--color-white);
+		background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		max-width: 800px;
+		padding: 2rem;
+	}
+
+	.subtitle {
+		display: block;
+		font-family: 'Lato', sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 1rem;
+		margin-bottom: 1rem;
+		color: var(--color-pink-light);
+	}
+
+	.hero h1 {
+		font-size: 4.5rem;
+		margin-bottom: 1.5rem;
+		color: var(--color-white);
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+	}
+
+	.hero p {
+		font-size: 1.4rem;
+		margin-bottom: 2.5rem;
+		font-weight: 300;
+	}
+
+	.cta-group {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.btn-primary {
+		background-color: var(--color-pink);
+		color: var(--color-white);
+	}
+
+	.btn-outline {
+		background-color: transparent;
+		border: 2px solid var(--color-white);
+		color: var(--color-white);
+		padding: 0.8rem 2rem;
+		text-decoration: none;
+		border-radius: 30px;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+		letter-spacing: 1px;
+		transition: all 0.3s ease;
+	}
+
+	.btn-outline:hover {
+		background-color: var(--color-white);
+		color: var(--color-text);
+	}
+
+	/* Intro */
+	.intro {
+		padding: 6rem 1rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+
+	.intro-image img {
+		width: 100%;
+		border-radius: 8px;
+		box-shadow: 20px 20px 0 var(--color-pink-light);
+	}
+
+	.intro-text h2 {
+		font-size: 2.5rem;
+		color: var(--color-taupe-dark);
+		margin-bottom: 1.5rem;
+	}
+
+	.intro-text p {
+		margin-bottom: 1rem;
+		line-height: 1.8;
+		color: var(--color-text);
+	}
+
+	/* Services */
+	.services {
+		background-color: var(--color-bg);
+		padding: 6rem 1rem;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: 4rem;
+	}
+
+	.section-header h2 {
+		font-size: 2.5rem;
+		color: var(--color-text);
+		margin-bottom: 0.5rem;
+	}
+
+	.section-header p {
+		color: var(--color-pink);
+		font-style: italic;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.service-card {
+		background: var(--color-white);
+		padding: 3rem 2rem;
+		text-align: center;
+		border-radius: 8px;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+		transition: transform 0.3s ease;
+	}
+
+	.service-card:hover {
+		transform: translateY(-10px);
+	}
+
+	.icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.service-card h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: var(--color-taupe-dark);
+	}
+
+	/* Gallery */
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.gallery-item {
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.gallery-item img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.5s ease;
+	}
+
+	.gallery-item:hover img {
+		transform: scale(1.1);
+	}
+
+	/* Testimonials */
+	.testimonials {
+		padding: 6rem 1rem;
+		text-align: center;
+		background-color: var(--color-pink-light);
+	}
+
+	.testimonials h2 {
+		margin-bottom: 3rem;
+		color: var(--color-text);
+	}
+
+	.testimonial-card {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.quote {
+		font-size: 1.5rem;
+		font-family: 'Playfair Display', serif;
+		font-style: italic;
+		margin-bottom: 1.5rem;
+		line-height: 1.6;
+	}
+
+	.author {
+		font-weight: 700;
+		color: var(--color-taupe-dark);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	/* Social Section */
+	.social-section {
+		padding: 6rem 1rem;
+		text-align: center;
+		background-color: var(--color-white);
+	}
+
+	.social-section h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: var(--color-text);
+	}
+
+	.social-section p {
+		margin-bottom: 3rem;
+		color: var(--color-taupe-dark);
+	}
+
+	.social-buttons {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.social-btn {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 2.5rem;
+		border-radius: 50px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1.1rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		color: var(--color-white);
+	}
+
+	.social-btn:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+	}
+
+	.social-btn svg {
+		width: 24px;
+		height: 24px;
+	}
+
+	.instagram {
+		background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+	}
+
+	.facebook {
+		background-color: #1877F2;
+	}
+
+	.tiktok {
+		background-color: #000000;
+	}
+
+	/* Info Section */
+	.info-section {
+		background-color: var(--color-taupe);
+		color: var(--color-white);
+		padding: 4rem 1rem;
+	}
+
+	.info-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 4rem;
+		text-align: center;
+	}
+
+	.info-box h3 {
+		color: var(--color-white);
+		margin-bottom: 1.5rem;
+		font-size: 1.5rem;
+	}
+
+	.info-box ul {
+		list-style: none;
+	}
+
+	.info-box li {
+		margin-bottom: 0.5rem;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.info-box li span {
+		font-weight: 700;
+	}
+
+	.info-box p {
+		line-height: 1.8;
+	}
+
+	.map-wrapper {
+		margin-top: 3rem;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+	}
+
+	.map-placeholder {
+		background-color: rgba(255, 255, 255, 0.1);
+		padding: 4rem 2rem;
+		text-align: center;
+		border: 2px dashed rgba(255, 255, 255, 0.3);
+		border-radius: 8px;
+	}
+
+	.map-placeholder p {
+		margin-bottom: 1.5rem;
+		font-size: 1.1rem;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 3rem;
+		}
+		
+		.intro {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.intro-image {
+			order: -1;
+		}
+
+		.gallery {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+</style>

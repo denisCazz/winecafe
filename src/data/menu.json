@@ -1,0 +1,60 @@
+{
+  "nome_locale": "Wine Cafè",
+  "categorie": {
+    "caffetteria": [
+      { "nome": "Caffè", "prezzo": 1.00 },
+      { "nome": "Caffè doppio", "prezzo": 2.20 },
+      { "nome": "Decaffeinato", "prezzo": 1.20 },
+      { "nome": "Caffè macchiato soia", "prezzo": 1.20 },
+      { "nome": "Caffè corretto", "prezzo": 1.20 },
+      { "nome": "Caffè americano", "prezzo": 1.50 },
+      { "nome": "Ginseng/Orzo piccoli", "prezzo": 1.10 },
+      { "nome": "Ginseng/Orzo grandi", "prezzo": 1.40 },
+      { "nome": "Marocchino", "prezzo": 1.60 },
+      { "nome": "Cappuccino", "prezzo": 1.80 },
+      { "nome": "Cappuccino soia/mandorla", "prezzo": 1.40 },
+      { "nome": "Cappuccino DEK", "prezzo": 1.50 },
+      { "nome": "Ginseng/Orzo", "prezzo": 1.80 },
+      { "nome": "Latte bianco", "prezzo": 1.00 },
+      { "nome": "Latte macchiato", "prezzo": 1.20 },
+      { "nome": "Schiumetta", "prezzo": 0.50 },
+      { "nome": "Tè e tisane", "prezzo": 3.00 },
+      { "nome": "Cioccolata calda", "prezzo": 3.80 },
+      { "nome": "Cioccolata con panna", "prezzo": 4.00 },
+      { "nome": "Latte e menta", "prezzo": 1.30 },
+      { "nome": "Acqua con sciroppo", "prezzo": 2.00 },
+      { "nome": "Brioches mini", "prezzo": 1.00 },
+      { "nome": "Brioches", "prezzo": 1.40 },
+      { "nome": "Ciambelle e bomboloni", "prezzo": 1.80 },
+      { "nome": "Paninetti", "prezzo": 1.30 },
+      { "nome": "Patatine", "prezzo": 1.30 }
+    ],
+    "bevande": [
+      { "nome": "Acqua 0,5L", "prezzo": 0.80 },
+      { "nome": "Succhi di frutta", "prezzo": 2.80 },
+      { "nome": "Succo mirtillo", "prezzo": 3.00 },
+      { "nome": "Spremuta", "prezzo": 3.00 },
+      { "nome": "Brick Estathé", "prezzo": 1.50 },
+      { "nome": "Lattine", "prezzo": 2.80 },
+      { "nome": "Redbull / Chinotto / Limonata", "prezzo": 3.00 }
+    ],
+    "aperitivi": [
+      { "nome": "Crodino / Campari Soda", "prezzo": 2.50 },
+      { "nome": "Crodino / Campari con correzione", "prezzo": 3.00 },
+      { "nome": "Crodino / Campari con Gin", "prezzo": 3.50 },
+      { "nome": "Spritz", "prezzo": 5.00 },
+      { "nome": "Calice di vino", "prezzo": 5.00 },
+      { "nome": "Cocktail", "prezzo": 6.00 },
+      { "nome": "Birra alla spina piccola", "prezzo": 4.00 },
+      { "nome": "Birra alla spina media", "prezzo": 5.00 },
+      { "nome": "Birre in bottiglia (Tennent’s, Ceres, Rossa)", "prezzo": 3.50 },
+      { "nome": "Amari", "prezzo": 4.00 },
+      { "nome": "Analcolico della casa", "prezzo": 3.00 }
+    ],
+    "aperitivo_con_tagliere": {
+      "prezzo_per_persona": 10.00,
+      "include": "Una consumazione a scelta + tagliere",
+      "note": "Disponibile variante vegetariana o senza maiale su richiesta"
+    }
+  }
+}
