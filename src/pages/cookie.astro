@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Cookie Policy - Wine Cafè">
+	<div class="legal-page">
+		<div class="container">
+			<h1>Cookie Policy</h1>
+			<p class="last-update">Ultimo aggiornamento: Dicembre 2025</p>
+
+			<section>
+				<h2>Cosa sono i Cookie</h2>
+				<p>
+					I cookie sono piccoli file di testo che vengono memorizzati sul dispositivo dell'utente 
+					quando visita un sito web. Servono a migliorare l'esperienza di navigazione e a fornire 
+					funzionalità aggiuntive.
+				</p>
+			</section>
+
+			<section>
+				<h2>Cookie Utilizzati</h2>
+				<p>
+					Questo sito web <strong>non utilizza cookie propri</strong> per il tracciamento o la profilazione degli utenti.
+				</p>
+				
+				<h3>Cookie Tecnici</h3>
+				<p>
+					Utilizziamo esclusivamente un cookie tecnico (localStorage) per memorizzare la preferenza 
+					dell'utente riguardo al consenso dei cookie. Questo cookie:
+				</p>
+				<ul>
+					<li>Non contiene dati personali</li>
+					<li>Non viene condiviso con terze parti</li>
+					<li>Serve solo a ricordare la scelta dell'utente</li>
+				</ul>
+
+				<h3>Cookie di Terze Parti</h3>
+				<p>
+					Il sito integra il servizio <strong>Google Maps</strong> per la visualizzazione della mappa. 
+					Questo servizio viene caricato <strong>solo dopo il consenso esplicito</strong> dell'utente 
+					e potrebbe installare cookie propri.
+				</p>
+				<p>
+					Per maggiori informazioni:
+				</p>
+				<ul>
+					<li><a href="https://policies.google.com/technologies/cookies" target="_blank">Cookie utilizzati da Google</a></li>
+					<li><a href="https://policies.google.com/privacy" target="_blank">Privacy Policy di Google</a></li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Gestione dei Cookie</h2>
+				<p>
+					Al primo accesso al sito, viene mostrato un banner che permette di accettare o rifiutare 
+					i cookie di terze parti. L'utente può modificare la propria scelta in qualsiasi momento:
+				</p>
+				<ul>
+					<li>Cancellando i dati del sito dalle impostazioni del browser</li>
+					<li>Utilizzando la navigazione in incognito</li>
+				</ul>
+				<p>
+					<button id="reset-cookies" class="btn">Reimposta preferenze cookie</button>
+				</p>
+			</section>
+
+			<section>
+				<h2>Contatti</h2>
+				<p>
+					Per qualsiasi domanda riguardo questa Cookie Policy, contattare:<br>
+					<strong>Wine Cafè di Maffione Veronica</strong><br>
+					Email: <a href="mailto:winecafe@blu.it">winecafe@blu.it</a>
+				</p>
+			</section>
+		</div>
+	</div>
+</Layout>
+
+<script>
+	const resetBtn = document.getElementById('reset-cookies');
+	
+	resetBtn?.addEventListener('click', () => {
+		localStorage.removeItem('cookie_consent');
+		localStorage.removeItem('cookie_consent_map');
+		alert('Preferenze cookie reimpostate. Il banner verrà mostrato al prossimo caricamento della pagina.');
+		window.location.reload();
+	});
+</script>
+
+<style>
+	.legal-page {
+		padding: 4rem 1rem;
+		background-color: var(--color-bg);
+	}
+
+	.legal-page h1 {
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+		color: var(--color-text);
+	}
+
+	.last-update {
+		color: var(--color-taupe-dark);
+		font-style: italic;
+		margin-bottom: 3rem;
+	}
+
+	section {
+		margin-bottom: 2.5rem;
+	}
+
+	section h2 {
+		font-size: 1.5rem;
+		color: var(--color-gold-dark);
+		margin-bottom: 1rem;
+	}
+
+	section h3 {
+		font-size: 1.2rem;
+		color: var(--color-navy-light);
+		margin: 1.5rem 0 0.5rem;
+	}
+
+	section p, section ul {
+		line-height: 1.8;
+		margin-bottom: 1rem;
+	}
+
+	section ul {
+		padding-left: 1.5rem;
+	}
+
+	section li {
+		margin-bottom: 0.5rem;
+	}
+
+	section a {
+		color: var(--color-gold-dark);
+		text-decoration: underline;
+	}
+
+	section a:hover {
+		color: var(--color-navy);
+	}
+</style>
