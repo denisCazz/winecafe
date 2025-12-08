@@ -29,6 +29,19 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
+	<!-- Eventi e Locandine -->
+	<section class="events-section">
+		<div class="container">
+			<h2>Eventi e Novità</h2>
+			<p>Scopri i nostri prossimi appuntamenti</p>
+			<div class="events-grid">
+				<div class="event-card">
+					<img src="/locandina.jpeg" alt="Evento Wine Cafè" />
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Services Section -->
 	<section class="services">
 		<div class="container">
@@ -87,11 +100,11 @@ import Layout from '../layouts/Layout.astro';
 			<h2>Seguici sui Social</h2>
 			<p>Rimani aggiornato sulle nostre novità ed eventi</p>
 			<div class="social-buttons">
-				<a href="https://www.instagram.com/winecafe2/" target="_blank" class="social-btn instagram">
+				<a href="https://www.instagram.com/winecafe_bar/" target="_blank" class="social-btn instagram">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
 					Instagram
 				</a>
-				<a href="#" class="social-btn facebook">
+				<a href="https://www.facebook.com/p/Wine-caf%C3%A8-Lounge-bar-100086801626919/" class="social-btn facebook">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
 					Facebook
 				</a>
@@ -403,6 +416,51 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--color-gold-light);
 		text-transform: uppercase;
 		letter-spacing: 1px;
+	}
+
+	/* Events Section */
+	.events-section {
+		padding: 6rem 1rem;
+		text-align: center;
+		background-color: var(--color-bg);
+	}
+
+	.events-section h2 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: var(--color-navy);
+	}
+
+	.events-section > .container > p {
+		margin-bottom: 3rem;
+		color: var(--color-navy-light);
+	}
+
+	.events-grid {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.event-card {
+		max-width: 400px;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		background-color: var(--color-white);
+	}
+
+	.event-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+	}
+
+	.event-card img {
+		width: 100%;
+		height: auto;
+		display: block;
 	}
 
 	/* Social Section */

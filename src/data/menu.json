@@ -2,7 +2,7 @@
   "nome_locale": "Wine Cafè",
   "categorie": {
     "caffetteria": [
-      { "nome": "Caffè", "prezzo": 1.00 },
+      { "nome": "Caffè", "prezzo": 1.10 },
       { "nome": "Caffè doppio", "prezzo": 2.20 },
       { "nome": "Decaffeinato", "prezzo": 1.20 },
       { "nome": "Caffè macchiato soia", "prezzo": 1.20 },
