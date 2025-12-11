@@ -104,7 +104,7 @@ import Layout from '../layouts/Layout.astro';
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
 					Instagram
 				</a>
-				<a href="https://www.facebook.com/p/Wine-caf%C3%A8-Lounge-bar-100086801626919/" class="social-btn facebook">
+				<a href="https://www.facebook.com/profile.php?id=61584593515980" class="social-btn facebook">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
 					Facebook
 				</a>
@@ -121,12 +121,14 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="info-grid">
 				<div class="info-box">
-					<h3>Orari di Apertura</h3>
-					<ul>
-						<li><span>Lunedì - Venerdì:</span> 07:00 - 22:00</li>
-						<li><span>Sabato:</span> 08:00 - 24:00</li>
-						<li><span>Domenica:</span> 09:00 - 21:00</li>
-					</ul>
+					<div class="orari-evidenza">
+						<h3><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Orari di Apertura</h3>
+						<ul class="orari-list">
+							<li><span class="orari-giorno">Lunedì - Venerdì:</span><span class="orari-orario">07:00 - 22:00</span></li>
+							<li><span class="orari-giorno">Sabato:</span><span class="orari-orario">08:00 - 24:00</span></li>
+							<li><span class="orari-giorno">Domenica:</span><span class="orari-orario">09:00 - 21:00</span></li>
+						</ul>
+					</div>
 				</div>
 				<div class="info-box">
 					<h3>Dove Siamo</h3>
@@ -601,4 +603,53 @@ import Layout from '../layouts/Layout.astro';
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
+
+/* Orari evidenziati */
+.orari-evidenza {
+	background: rgba(255, 215, 0, 0.12);
+	border: 2px solid var(--color-gold);
+	border-radius: 12px;
+	padding: 1.5rem 1rem;
+	margin-bottom: 1.5rem;
+	box-shadow: 0 2px 12px rgba(218, 165, 32, 0.08);
+}
+.orari-evidenza h3 {
+	color: var(--color-gold);
+	font-size: 1.6rem;
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.orari-evidenza ul.orari-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.orari-evidenza ul.orari-list li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+	gap: 2rem;
+	color: var(--color-navy);
+	background: rgba(255,255,255,0.7);
+	border-radius: 6px;
+	padding: 0.3em 0.7em;
+}
+.orari-giorno {
+	font-weight: 700;
+	text-align: left;
+	letter-spacing: 0.5px;
+}
+.orari-orario {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	text-align: right;
+	min-width: 120px;
+	color: var(--color-navy);
+	letter-spacing: 1px;
+}
+
 </style>

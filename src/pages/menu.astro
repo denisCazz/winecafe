@@ -19,36 +19,56 @@ const { categorie } = menuData;
 		</div>
 
 		<div id="menuContent">
-			{Object.entries(categorie).map(([key, items]) => (
-				<section class="menu-section" data-category={key}>
-					<h2 class="category-title">
-						{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
-					</h2>
-					
-					{Array.isArray(items) ? (
-						<div class="menu-grid">
-							{items.map((item) => (
-								<div class="menu-item" data-name={item.nome.toLowerCase()}>
-									<div class="item-info">
-										<span class="item-name">{item.nome}</span>
-										<span class="item-dots"></span>
-										<span class="item-price">€ {item.prezzo.toFixed(2)}</span>
+			   {Object.entries(categorie).map(([key, items]) => {
+				   if (key === 'taglieri') {
+					   return (
+						   <section class="menu-section" data-category={key}>
+							   <h2 class="category-title">Taglieri</h2>
+							   <p class="taglieri-desc">Disponibili anche su prenotazione: vegano, vegetariano, celiaco.</p>
+							<div class="menu-grid taglieri-grid">
+								{items.map((item) => (
+									<div class="menu-item" data-name={item.nome.toLowerCase()}>
+										<div class="item-info taglieri-info">
+											<span class="item-name">{item.nome}</span>
+											<span class="item-dots taglieri-dots"></span>
+											<span class="item-price taglieri-price">€ {item.prezzo.toFixed(2)}</span>
+										</div>
 									</div>
-								</div>
-							))}
-						</div>
-					) : (
-						<div class="special-item">
-							<div class="special-header">
-								<h3>Aperitivo con Tagliere</h3>
-								<span class="special-price">€ {items.prezzo_per_persona.toFixed(2)} p.p.</span>
+								))}
 							</div>
-							<p class="special-desc">{items.include}</p>
-							<p class="special-note">{items.note}</p>
-						</div>
-					)}
-				</section>
-			))}
+						   </section>
+					   );
+				   }
+				   return (
+					   <section class="menu-section" data-category={key}>
+						   <h2 class="category-title">
+							   {key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+						   </h2>
+						   {Array.isArray(items) ? (
+							   <div class="menu-grid">
+								   {items.map((item) => (
+									   <div class="menu-item" data-name={item.nome.toLowerCase()}>
+										   <div class="item-info">
+											   <span class="item-name">{item.nome}</span>
+											   <span class="item-dots"></span>
+											   <span class="item-price">€ {item.prezzo.toFixed(2)}</span>
+										   </div>
+									   </div>
+								   ))}
+							   </div>
+						   ) : (
+							   <div class="special-item">
+								   <div class="special-header">
+									   <h3>Aperitivo con Tagliere</h3>
+									   <span class="special-price">€ {items.prezzo_per_persona.toFixed(2)} p.p.</span>
+								   </div>
+								   <p class="special-desc">{items.include}</p>
+								   <p class="special-note">{items.note}</p>
+							   </div>
+						   )}
+					   </section>
+				   );
+			   })}
 		</div>
 		
 		<div id="noResults" class="no-results" style="display: none;">
@@ -260,4 +280,37 @@ const { categorie } = menuData;
 			gap: 0.5rem;
 		}
 	}
+
+.taglieri-desc {
+	font-size: 1.1rem;
+	color: var(--color-navy);
+	margin-bottom: 1rem;
+	text-align: center;
+	font-style: italic;
+}
+.taglieri-grid .taglieri-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+.taglieri-grid .item-name {
+	font-weight: 600;
+	text-align: left;
+}
+.taglieri-grid .taglieri-dots {
+	flex: 1 1 auto;
+	border-bottom: 1px dotted #bbb;
+	margin: 0 0.5rem;
+	height: 1px;
+	min-width: 30px;
+	max-width: 100px;
+}
+.taglieri-grid .taglieri-price {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	color: var(--color-gold);
+	min-width: 70px;
+	text-align: right;
+}
 </style>

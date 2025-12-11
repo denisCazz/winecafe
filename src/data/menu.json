@@ -3,6 +3,7 @@
   "categorie": {
     "caffetteria": [
       { "nome": "Caffè", "prezzo": 1.10 },
+      { "nome": "Caffè macchiato", "prezzo": 1.20 },
       { "nome": "Caffè doppio", "prezzo": 2.20 },
       { "nome": "Decaffeinato", "prezzo": 1.20 },
       { "nome": "Caffè macchiato soia", "prezzo": 1.20 },
@@ -55,6 +56,13 @@
       "prezzo_per_persona": 10.00,
       "include": "Una consumazione a scelta + tagliere",
       "note": "Disponibile variante vegetariana o senza maiale su richiesta"
-    }
+    },
+    "taglieri": [
+      { "nome": "Tagliere", "prezzo": 10.00 },
+      { "nome": "Tagliere mediterraneo", "prezzo": 12.00 },
+      { "nome": "Tagliere vegano (su prenotazione)", "prezzo": 12.00 },
+      { "nome": "Tagliere vegetariano (su prenotazione)", "prezzo": 12.00 },
+      { "nome": "Tagliere celiaco (su prenotazione)", "prezzo": 12.00 }
+    ]
   }
 }
