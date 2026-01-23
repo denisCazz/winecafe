@@ -1,0 +1,175 @@
+---
+// Pagina di Manutenzione
+---
+
+<!doctype html>
+<html lang="it">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Wine Cafè - Manutenzione in corso" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/logo-wine.ico" />
+		<title>Wine Cafè - Manutenzione in corso</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="maintenance-container">
+			<div class="background-pattern"></div>
+			<div class="content">
+				<div class="logo-wrapper">
+					<img src="/logo-wine.jpeg" alt="Wine Cafè" class="logo" />
+				</div>
+				
+				<div class="icon-wrapper">
+					<svg class="gear-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="3"></circle>
+						<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+					</svg>
+				</div>
+
+				<h1>Sito in manutenzione</h1>
+				<p class="subtitle">Torneremo presto online</p>
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	:root {
+		--color-gold: #C9A227;
+		--color-gold-light: #E8D48A;
+		--color-navy: #1B2838;
+		--color-navy-light: #2C3E50;
+		--color-white: #FFFFFF;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html, body {
+		height: 100%;
+		font-family: 'Lato', sans-serif;
+	}
+
+	h1 {
+		font-family: 'Playfair Display', serif;
+	}
+
+	.maintenance-container {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+		position: relative;
+	}
+
+	.background-pattern {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-image: 
+			radial-gradient(circle at 20% 80%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 20%, rgba(201, 162, 39, 0.08) 0%, transparent 40%);
+		pointer-events: none;
+	}
+
+	.content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		padding: 2rem;
+	}
+
+	.logo-wrapper {
+		margin-bottom: 2rem;
+		animation: fadeInDown 0.8s ease-out;
+	}
+
+	.logo {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		border: 3px solid var(--color-gold);
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+		object-fit: cover;
+	}
+
+	.icon-wrapper {
+		margin-bottom: 1.5rem;
+		animation: fadeIn 1s ease-out 0.3s both;
+	}
+
+	.gear-icon {
+		color: var(--color-gold);
+		animation: rotate 8s linear infinite;
+	}
+
+	@keyframes rotate {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	@keyframes fadeInDown {
+		from { 
+			opacity: 0;
+			transform: translateY(-30px);
+		}
+		to { 
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeInUp {
+		from { 
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to { 
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		color: var(--color-white);
+		margin-bottom: 0.5rem;
+		animation: fadeInUp 0.8s ease-out 0.5s both;
+	}
+
+	.subtitle {
+		font-size: 1.1rem;
+		color: var(--color-gold-light);
+		animation: fadeInUp 0.8s ease-out 0.7s both;
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 1.8rem;
+		}
+
+		.logo {
+			width: 70px;
+			height: 70px;
+		}
+
+		.gear-icon {
+			width: 50px;
+			height: 50px;
+		}
+	}
+</style>

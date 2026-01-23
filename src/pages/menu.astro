@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import menuData from '../data/menu.json';
 
+// Redirect alla pagina di manutenzione
+return Astro.redirect('/maintenance');
+
 const { categorie } = menuData;
 ---
 
